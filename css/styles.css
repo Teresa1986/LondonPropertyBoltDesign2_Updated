@@ -79,6 +79,8 @@ header {
     gap: 3.5rem;
 }
 
+
+
 .nav-links a {
     color: #2C3E50;
     text-decoration: none;
@@ -91,6 +93,8 @@ header {
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
 }
+
+
 nav{
     background-color: #e7f8ff ;
 }
@@ -330,7 +334,7 @@ main {
 }
 
 .view-details:hover {
-    background: #61b7db;
+    background: #1887b6;
     transform: translateY(-2px);
 }
 
@@ -484,6 +488,12 @@ footer {
         padding: 1.5rem;
         gap: 1.5rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .nav-links a.active {
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
     }
 
     .nav-links.show {
