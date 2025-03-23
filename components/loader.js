@@ -53,19 +53,22 @@ function highlightActiveNavLink() {
   }, 50);
 }
 
-// Function to initialize the mobile menu
+// Function to toggle mobile menu
 function initializeMobileMenu() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('.nav-links');
 
   if (mobileMenuBtn && navMenu) {
+    // Ensure menu is hidden by default
+    navMenu.classList.remove("show");
+
     mobileMenuBtn.addEventListener('click', function () {
       navMenu.classList.toggle('show');
     });
   }
 }
 
-// Function to setup dropdown menu with smooth transitions
+// Function to setup dropdown menu
 function setupDropdownMenu() {
   setTimeout(() => {
       const dropdownMenu = document.getElementById("dropdown-menu");
@@ -80,21 +83,27 @@ function setupDropdownMenu() {
           dropdownMenu.style.transform = "translateY(-10px)";
           dropdownMenu.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out";
 
-          // Show dropdown smoothly on hover
+          // Show dropdown smoothly on hover (for desktops)
           parentElement.addEventListener("mouseenter", function () {
               dropdownMenu.style.opacity = "1";
               dropdownMenu.style.visibility = "visible";
               dropdownMenu.style.transform = "translateY(0)";
           });
 
-          // Hide dropdown smoothly when mouse leaves
+          // Hide dropdown smoothly when mouse leaves (for desktops)
           parentElement.addEventListener("mouseleave", function () {
               dropdownMenu.style.opacity = "0";
               dropdownMenu.style.visibility = "hidden";
               dropdownMenu.style.transform = "translateY(-10px)";
           });
 
-          // Prevent dropdown from randomly popping when clicking elsewhere
+          // Toggle dropdown visibility on mobile click
+          associatedLink.addEventListener("click", function (event) {
+              event.preventDefault(); // Prevent link navigation
+              dropdownMenu.classList.toggle("show");
+          });
+
+          // Close dropdown when clicking outside
           document.addEventListener("click", function (event) {
               if (!parentElement.contains(event.target)) {
                   dropdownMenu.style.opacity = "0";
@@ -105,8 +114,6 @@ function setupDropdownMenu() {
       }
   }, 100);
 }
-
-
 
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', loadComponents);

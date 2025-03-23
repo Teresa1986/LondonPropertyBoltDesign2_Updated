@@ -78,9 +78,12 @@ header {
 
 .nav-links {
     display: flex;
-    justify-content: space-evenly; /* Even spacing for all items */
-    align-items: center; /* Center items vertically */
-    width: 100%; /* Ensure it spans full width */
+    justify-content: space-evenly;
+    /* Even spacing for all items */
+    align-items: center;
+    /* Center items vertically */
+    width: 100%;
+    /* Ensure it spans full width */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -116,9 +119,11 @@ nav {
 /* Center dropdown menu */
 .dropdown-menu {
     position: absolute;
-    top: 100%; /* Align just below "Associated Companies" */
+    top: 100%;
+    /* Align just below "Associated Companies" */
     left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
+    transform: translateX(-50%);
+    /* Center it horizontally */
     min-width: 200px;
     background: white;
     padding: 10px 0;
@@ -127,16 +132,19 @@ nav {
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
-    list-style: none; /* Remove bullet points */
-    text-align: center; /* Center text */
-}   
+    list-style: none;
+    /* Remove bullet points */
+    text-align: center;
+    /* Center text */
+}
+
 /* Remove bullet points from dropdown items */
 
 .dropdown-menu li {
     list-style: none;
-    padding:5px;
+    padding: 5px;
 
-    
+
 }
 
 /* Show dropdown menu on hover */
@@ -641,57 +649,103 @@ footer {
     }
 
     /* Reset some styles */
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Align items vertically */
-    gap: 20px; /* Space between links */
-}
-
-.nav-links li {
-    position: relative;
-}
-
-
-
-@media (max-width: 480px) {
-    .section {
-        padding: 3rem 1.5rem;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    .contact-info {
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        /* Center items horizontally */
+        align-items: center;
+        /* Align items vertically */
+        gap: 20px;
+        /* Space between links */
+    }
+
+    .nav-links li {
+        position: relative;
+    }
+
+
+
+    @media (max-width: 480px) {
+        .section {
+            padding: 3rem 1.5rem;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            text-align: center;
+            gap: 5px;
+        }
+
+        .contact-item {
+            font-size: 14px;
+        }
+
+        .content-grid,
+        .properties-grid,
+        .team-grid,
+        .documents-grid,
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+            padding: 1.5rem;
+        }
+
+        .hero h1 {  
+            font-size: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+    /* Mobile Navigation - Hide by Default */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide menu on page load */
         flex-direction: column;
-        text-align: center;
-        gap: 5px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FFF;
+        padding: 1.5rem 0;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
     }
 
-    .contact-item {
-        font-size: 14px;
+    .nav-links.show {
+        display: flex; /* Show menu when toggled */
     }
 
-    .content-grid,
-    .properties-grid,
-    .team-grid,
-    .documents-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Ensure dropdown is hidden by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
 
-    .hero-content {
-        padding: 1.5rem;
-    }
+/* Show dropdown on hover for desktops */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+/* Style for mobile menu dropdown */
+.dropdown-menu.show {
+    display: block;
+}
+}
 
-    .section-title {
-        font-size: 2rem;
-    }
 }
