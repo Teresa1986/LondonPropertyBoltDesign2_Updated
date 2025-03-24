@@ -812,6 +812,19 @@ footer {
 .dropdown-menu.show {
     display: block;
 }
+
+.document-links {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center;
 }
 
+.doc-btn {
+    width: 80%; /* Make buttons full width but leave some margin */
+    max-width: 300px;
 }
+}
+
+
+
+}
+
