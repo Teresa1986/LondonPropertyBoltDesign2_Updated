@@ -239,7 +239,7 @@ main {
     text-align: justify;
 } */
 .mb-4,
-.mt-4 {
+.mt-4,p {
     color: #1887b6;
     text-align: justify;
 }
@@ -932,7 +932,13 @@ footer {
             .office-info p {
                 margin: 0.5rem 0;
             }
-            
+            .mb-4, .mt-4 {
+                color: #1887b6;
+                text-align: justify;
+                font-weight: normal;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
         }
     }
 }
