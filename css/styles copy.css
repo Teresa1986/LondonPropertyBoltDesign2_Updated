@@ -101,7 +101,6 @@ header {
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
-    
 }
 
 
@@ -231,17 +230,6 @@ main {
 
 
 }
-/*Finance page section*/
-
-/* .privacy-section {
-    padding: 40px;
-    text-align: justify;
-} */
- .mb-4, .mt-4{
-    color:#1887b6;
-    text-align: justify;    
- }
- 
 
 /* Hero section */
 .hero {
@@ -495,7 +483,6 @@ main {
     margin-bottom: 1rem;
     font-size: 1.8rem;
     font-weight: 600;
-    text-align: center;
 }
 
 .document-card p {
@@ -542,7 +529,7 @@ main {
 
 /* Document Buttons - 5 Column Grid */
 .document-links {
-    display: flex;
+    display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
     gap: 10px;
     justify-content: center;
@@ -551,7 +538,7 @@ main {
 
 /* Button Styling */
 .doc-btn {
-    display: flex;
+    display: inline-block;
     background: #61b7db;
     color: white;
     padding: 12px 20px;
@@ -751,7 +738,7 @@ footer {
         .contact-item {
             font-size: 14px;
         }
-      
+
         .content-grid,
         .properties-grid,
         .team-grid,
