@@ -728,39 +728,40 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px;
-    background: #1887b6;
-    color: white;
-    text-align: center;
-
-    justify-content: space-between;
-    align-items: center;
-
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    flex-wrap: wrap; /* Ensures wrapping for small screens */
+    text-align: center; /* Aligns text properly */
+    padding: 10px 20px;
 }
 
-.contact-info,
-.footer-links {
+.contact-info, .footer-links {
     display: flex;
     gap: 15px;
+    align-items: center; /* Ensures links align properly */
 }
 
 .footer-link {
     text-decoration: underline;
-
-    color: #fefefe;
-
     color: #ffffff;
-
 }
 
 .footer-link:hover {
     text-decoration: underline;
 }
 
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .contact-info, .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 
 /* Animations */
 @keyframes fadeIn {
