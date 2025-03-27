@@ -735,16 +735,25 @@ footer {
     background: #1887b6;
     color: white;
     text-align: center;
+
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.contact-info, .footer-links {
+.contact-info,
+.footer-links {
     display: flex;
     gap: 15px;
 }
 
 .footer-link {
     text-decoration: underline;
+
     color: #fefefe;
+
+    color: #ffffff;
+
 }
 
 .footer-link:hover {
