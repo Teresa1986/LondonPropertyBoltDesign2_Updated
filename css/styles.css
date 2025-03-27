@@ -87,20 +87,22 @@ header {
     list-style: none;
     padding: 0;
     margin: 0;
+    
 }
 
 
 .nav-links a {
     color: #2C3E50;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    text-transform: uppercase;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:500;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    text-transform: capitalize;
 
 }
 
@@ -112,59 +114,89 @@ nav {
 /* Ensure dropdown behaves like other items */
 .dropdown {
     position: relative;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    color: #177ed8;
 }
-
-/* Center dropdown menu */
-.dropdown-menu {
+/* Regular dropdown without glassy effect */
+/* .dropdown-menu {
+    display: none;
     position: absolute;
-    top: 100%;
-    /* Align just below "Associated Companies" */
-    left: 50%;
-    transform: translateX(-50%);
-    /* Center it horizontally */
-    min-width: 200px;
-    background: white;
+    background: #fffffff1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
     padding: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    color: #177ed8;
+} */
+.dropdown-menu, .properties-menu {
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.568); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Adds glassmorphism effect */
+    -webkit-backdrop-filter: blur(20px); /* For Safari support */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     list-style: none;
-    /* Remove bullet points */
-    text-align: center;
-    /* Center text */
+    padding: 10px 0;
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    color: #177ed8;
 }
 
-/* Remove bullet points from dropdown items */
-
-.dropdown-menu li {
-    list-style: none;
-    padding: 5px;
-
-
+.properties-dropdown:hover .properties-menu {
+    display: block;
 }
 
-/* Show dropdown menu on hover */
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+.properties-menu li {
+    padding: 10px 20px;
+    transition: background 0.3s ease;
 }
+
+.properties-menu li:hover {
+    background: rgba(211, 211, 211, 0.5); /* Light gray highlight */
+}
+
+.properties-menu a {
+    text-decoration: none;
+    color: #2C3E50;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 10px 20px;
+}
+
+.properties-menu a:hover {
+    color: #177ed8;
+    font-weight: bold;
+}
+/* Properties dropdown mobile resonsive  */
+/* Mobile styles */
+/* Basic styles for the properties menu on mobile */
+
+  
+
+/* Dropdown with glassy effect */
+
+/* code copied to notepad */
+/* end  Dropdown with glassy effect */
+
 
 .nav-links li:hover #dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: #1887b6;
     border-bottom-color: #1887b6;
+    
 }
 
 /* Main content */
@@ -646,6 +678,8 @@ h3 {
         height: auto;
         /* Allow natural height for long text */
     }
+
+    
 }
 
 @media (max-width: 480px) {
@@ -873,22 +907,23 @@ footer {
         .dropdown-menu {
             display: none;
             position: absolute;
-            background: white;
+            background: rgb(239, 240, 240);
             list-style: none;
             padding: 0;
             margin: 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-
         /* Show dropdown on hover for desktops */
         .dropdown:hover .dropdown-menu {
             display: block;
+            
         }
 
         /* Style for mobile menu dropdown */
         .dropdown-menu.show {
             display: block;
+            
         }
 
         @media (max-width: 1024px) {
@@ -949,5 +984,5 @@ footer {
             }
           
         }
-    }
-}
+        
+}}

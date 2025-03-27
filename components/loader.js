@@ -21,7 +21,7 @@ async function loadComponents() {
     setTimeout(() => {
       initializeMobileMenu();
       highlightActiveNavLink();
-      setupDropdownMenu();
+      setupDropdownMenu(); // Setup mobile dropdown menu
     }, 100); // Small delay ensures the DOM updates properly
 
   } catch (error) {
@@ -71,47 +71,35 @@ function initializeMobileMenu() {
 // Function to setup dropdown menu
 function setupDropdownMenu() {
   setTimeout(() => {
-      const dropdownMenu = document.getElementById("dropdown-menu");
-      const associatedLink = document.getElementById("associated-link");
+    const propertiesDropdown = document.querySelector('.properties-dropdown');
+    const dropdownMenu = document.querySelector('.properties-menu');
+    
+    if (propertiesDropdown && dropdownMenu) {
+      // Toggle active class on click for mobile
+      propertiesDropdown.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent link navigation
+        propertiesDropdown.classList.toggle('active'); // Toggle active state for mobile
+      });
+      
+      // Optionally close the dropdown when clicking outside
+      document.addEventListener("click", function (event) {
+        if (!propertiesDropdown.contains(event.target)) {
+          propertiesDropdown.classList.remove('active'); // Close dropdown when clicking outside
+        }
+      });
 
-      if (dropdownMenu && associatedLink) {
-          const parentElement = associatedLink.parentElement;
+      // Add click event to submenu items for mobile to mimic hover effect
+      const menuItems = dropdownMenu.querySelectorAll("li");
+      menuItems.forEach(item => {
+        item.addEventListener("click", function () {
+          // Toggle the active class to simulate hover
+          item.classList.toggle("active");
 
-          // Ensure dropdown starts hidden
-          dropdownMenu.style.opacity = "0";
-          dropdownMenu.style.visibility = "hidden";
-          dropdownMenu.style.transform = "translateY(-10px)";
-          dropdownMenu.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out";
-
-          // Show dropdown smoothly on hover (for desktops)
-          parentElement.addEventListener("mouseenter", function () {
-              dropdownMenu.style.opacity = "1";
-              dropdownMenu.style.visibility = "visible";
-              dropdownMenu.style.transform = "translateY(0)";
-          });
-
-          // Hide dropdown smoothly when mouse leaves (for desktops)
-          parentElement.addEventListener("mouseleave", function () {
-              dropdownMenu.style.opacity = "0";
-              dropdownMenu.style.visibility = "hidden";
-              dropdownMenu.style.transform = "translateY(-10px)";
-          });
-
-          // Toggle dropdown visibility on mobile click
-          associatedLink.addEventListener("click", function (event) {
-              event.preventDefault(); // Prevent link navigation
-              dropdownMenu.classList.toggle("show");
-          });
-
-          // Close dropdown when clicking outside
-          document.addEventListener("click", function (event) {
-              if (!parentElement.contains(event.target)) {
-                  dropdownMenu.style.opacity = "0";
-                  dropdownMenu.style.visibility = "hidden";
-                  dropdownMenu.style.transform = "translateY(-10px)";
-              }
-          });
-      }
+          // Optionally close the dropdown after selection (if you want to hide after click)
+          dropdownMenu.classList.remove("show");
+        });
+      });
+    }
   }, 100);
 }
 
