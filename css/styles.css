@@ -736,6 +736,22 @@ footer {
     color: white;
     text-align: center;
 }
+<<<<<<< HEAD
+=======
+.contact-info, .footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-link {
+    text-decoration: underline;
+    color: #fefefe;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+>>>>>>> fc9a680 (Recent changes updated along with footer links)
 
 
 /* Animations */
