@@ -87,7 +87,7 @@ header {
     list-style: none;
     padding: 0;
     margin: 0;
-    
+
 }
 
 
@@ -95,8 +95,8 @@ header {
     color: #2C3E50;
     text-decoration: none;
     /* font-family: 'Montserrat', sans-serif; */
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     font-size: 0.95rem;
     letter-spacing: 1px;
     padding-bottom: 5px;
@@ -116,6 +116,7 @@ nav {
     position: relative;
     color: #177ed8;
 }
+
 /* Regular dropdown without glassy effect */
 /* .dropdown-menu {
     display: none;
@@ -130,12 +131,18 @@ nav {
     border-radius: 5px;
     color: #177ed8;
 } */
-.dropdown-menu, .properties-menu {
+/* Dropdown menu styles */
+.dropdown-menu,
+.properties-menu {
     display: none;
+    /* Hidden by default */
     position: absolute;
-    background: rgba(255, 255, 255, 0.568); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Adds glassmorphism effect */
-    -webkit-backdrop-filter: blur(20px); /* For Safari support */
+    background: rgba(255, 255, 255, 0.568);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(20px);
+    /* For Safari */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     list-style: none;
     padding: 10px 0;
@@ -144,21 +151,28 @@ nav {
     left: 0;
     border-radius: 5px;
     color: #177ed8;
+    z-index: 1000;
+    transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Show dropdown menu on hover */
 .properties-dropdown:hover .properties-menu {
     display: block;
 }
 
+/* Styling for menu items */
 .properties-menu li {
     padding: 10px 20px;
     transition: background 0.3s ease;
 }
 
+/* Hover effect for menu items */
 .properties-menu li:hover {
-    background: rgba(211, 211, 211, 0.5); /* Light gray highlight */
+    background: rgba(211, 211, 211, 0.5);
+    /* Light gray highlight */
 }
 
+/* Link styles inside the menu */
 .properties-menu a {
     text-decoration: none;
     color: #2C3E50;
@@ -169,15 +183,18 @@ nav {
     padding: 10px 20px;
 }
 
+/* Hover effect for links */
 .properties-menu a:hover {
     color: #177ed8;
     font-weight: bold;
 }
+
+
 /* Properties dropdown mobile resonsive  */
 /* Mobile styles */
 /* Basic styles for the properties menu on mobile */
 
-  
+
 
 /* Dropdown with glassy effect */
 
@@ -189,14 +206,14 @@ nav {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    
+
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: #1887b6;
     border-bottom-color: #1887b6;
-    
+
 }
 
 /* Main content */
@@ -252,9 +269,13 @@ main {
 
 .team-info {
     margin-top: 10px;
-    
+
 }
-.team-info, .mb-4, .mt-4, p {
+
+.team-info,
+.mb-4,
+.mt-4,
+p {
     color: #1887b6;
     text-align: center;
     display: flex;
@@ -281,7 +302,8 @@ main {
     text-align: justify;
 } */
 .mb-4,
-.mt-4,p {
+.mt-4,
+p {
     color: #1887b6;
     text-align: justify;
 }
@@ -347,6 +369,7 @@ h2,
     font-size: 3rem;
     font-weight: 700;
 }
+
 .section-subtitle {
     text-align: center;
     color: #646464;
@@ -368,6 +391,7 @@ h2,
     margin-right: auto;
     font-family: 'Montserrat', sans-serif;
 }
+
 .role-description {
     text-align: justify;
     color: #505152;
@@ -598,7 +622,7 @@ p {
     margin-bottom: 2rem;
     font-size: 1.5rem;
     font-weight: 400;
-   
+
 }
 
 .office-info p {
@@ -679,7 +703,7 @@ h3 {
         /* Allow natural height for long text */
     }
 
-    
+
 }
 
 @media (max-width: 480px) {
@@ -914,16 +938,17 @@ footer {
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+
         /* Show dropdown on hover for desktops */
         .dropdown:hover .dropdown-menu {
             display: block;
-            
+
         }
 
         /* Style for mobile menu dropdown */
         .dropdown-menu.show {
             display: block;
-            
+
         }
 
         @media (max-width: 1024px) {
@@ -950,16 +975,22 @@ footer {
                 font-weight: bold;
                 text-align: center;
                 transition: 0.3s ease;
-                width: 400px; /* Fixed width for desktop */
-                min-height: 60px; /* Ensures a base height */
-                height: auto; /* Allows the height to expand if needed */
+                width: 400px;
+                /* Fixed width for desktop */
+                min-height: 60px;
+                /* Ensures a base height */
+                height: auto;
+                /* Allows the height to expand if needed */
                 width: 95%;
                 /* ✅ Fix Word Wrapping */
-                white-space: normal !important; /* Allows text wrapping */
-                word-wrap: break-word !important; /* Ensures long words break */
-                overflow-wrap: break-word !important; /* Extra safeguard */
+                white-space: normal !important;
+                /* Allows text wrapping */
+                word-wrap: break-word !important;
+                /* Ensures long words break */
+                overflow-wrap: break-word !important;
+                /* Extra safeguard */
                 text-align: center;
-            
+
                 /* Ensure proper padding */
                 padding: 10px 15px;
             }
@@ -973,16 +1004,20 @@ footer {
                 line-height: 1.6;
                 word-wrap: break-word;
             }
-            
+
             .office-info p {
                 margin: 0.5rem 0;
                 line-height: 1.5;
-                word-spacing: normal; /* Ensures normal spacing */
-                white-space: normal; /* Prevents excessive gaps */
-                display: block; /* Ensures proper text wrapping */
+                word-spacing: normal;
+                /* Ensures normal spacing */
+                white-space: normal;
+                /* Prevents excessive gaps */
+                display: block;
+                /* Ensures proper text wrapping */
                 text-align: left;
             }
-          
+
         }
-        
-}}
+
+    }
+}
