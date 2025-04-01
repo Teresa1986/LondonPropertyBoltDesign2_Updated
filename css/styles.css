@@ -209,8 +209,10 @@ nav {
 
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,.nav-links a:hover,.properties-dropdown:hover > a,
+.properties-dropdown:focus-within > a,
+.properties-dropdown.active > a 
+ {
     color: #1887b6;
     border-bottom-color: #1887b6;   
     border-radius: 5px;
@@ -300,7 +302,7 @@ main {
 .mt-4,
 p {
     color: #1887b6;
-    text-align: justify;
+    text-align: center;
     display: flex;
     flex-direction: column;
 }

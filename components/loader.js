@@ -16,12 +16,12 @@ async function loadComponents() {
     const footerHtml = await footerResponse.text();
     document.body.insertAdjacentHTML('beforeend', footerHtml);
 
-    // Ensure elements exist before initializing
+    // Ensure elements exist before initializing features
     setTimeout(() => {
       initializeMobileMenu();
-      highlightActiveNavLink();
-      setupDropdownMenu(); // Setup mobile dropdown menu
-    }, 100); // Small delay ensures the DOM updates properly
+      highlightActiveNavLink();  // ✅ Ensure this runs after header is loaded
+      setupDropdownMenu(); // ✅ Setup mobile dropdown menu
+    }, 100); // Small delay ensures DOM updates properly
 
   } catch (error) {
     console.error('Error loading components:', error);
@@ -30,10 +30,17 @@ async function loadComponents() {
 
 // Function to highlight the active navigation link
 function highlightActiveNavLink() {
-  const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+  const currentPath = window.location.pathname.toLowerCase();
+  const currentPage = currentPath.split("/").pop(); // Extract filename from URL
+
+  // Mapping pages to their respective nav link IDs
   const links = {
     "index.html": "home-link",
     "properties.html": "properties-link",
+    "retail.html": "properties-link",  // Keep Properties active for submenu pages
+    "office.html": "properties-link",
+    "leisure.html": "properties-link",
+    "residential.html": "properties-link",
     "associatedcompanies.html": "associated-link",
     "people.html": "people-link",
     "financials.html": "financials-link",
@@ -41,8 +48,17 @@ function highlightActiveNavLink() {
   };
 
   setTimeout(() => {
-    document.querySelectorAll(".nav-links a").forEach(link => link.classList.remove("active"));
+    // Remove active class from all links
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.classList.remove("active");
 
+      // Check if the link matches the current page
+      if (link.getAttribute("href").toLowerCase() === currentPath) {
+        link.classList.add("active");
+      }
+    });
+
+    // If the current page is mapped, activate the corresponding link
     if (links[currentPage]) {
       const activeLink = document.getElementById(links[currentPage]);
       if (activeLink) {
@@ -52,16 +68,18 @@ function highlightActiveNavLink() {
   }, 50);
 }
 
+// Ensure this function runs after components are loaded
+document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
+
+
 // Function to toggle mobile menu
 function initializeMobileMenu() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('.nav-links');
 
   if (mobileMenuBtn && navMenu) {
-    // Ensure menu is hidden by default
     navMenu.classList.remove("show");
-
-    mobileMenuBtn.addEventListener('click', function () {
+    mobileMenuBtn.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
   }
@@ -74,74 +92,51 @@ function setupDropdownMenu() {
     const dropdownMenu = document.querySelector('.properties-menu');
 
     if (propertiesDropdown && dropdownMenu) {
-      // Show the dropdown on hover (desktop view)
+      // Show dropdown on hover
       propertiesDropdown.addEventListener("mouseenter", function () {
         dropdownMenu.style.opacity = "1";
         dropdownMenu.style.visibility = "visible";
         dropdownMenu.style.transform = "translateY(0)";
+        propertiesDropdown.classList.add("active"); // Keep Properties link active
       });
 
+      // Keep Properties active when submenu is hovered
+      dropdownMenu.addEventListener("mouseenter", function () {
+        propertiesDropdown.classList.add("active");
+      });
+
+      // Keep Properties active even after submenu item is clicked
+      dropdownMenu.querySelectorAll("a").forEach(item => {
+        item.addEventListener("click", function () {
+          propertiesDropdown.classList.add("active"); // Keep active after clicking
+        });
+      });
+
+      // Hide dropdown when leaving
       propertiesDropdown.addEventListener("mouseleave", function () {
         dropdownMenu.style.opacity = "0";
         dropdownMenu.style.visibility = "hidden";
         dropdownMenu.style.transform = "translateY(-10px)";
       });
-
-      // Toggle the dropdown on click (mobile view)
-      propertiesDropdown.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent link navigation for the dropdown toggle
-        propertiesDropdown.classList.toggle('active'); // Toggle active state for mobile
-      });
-
-      // Close the dropdown if clicking outside
-      document.addEventListener("click", function (event) {
-        if (!propertiesDropdown.contains(event.target)) {
-          propertiesDropdown.classList.remove('active'); // Close dropdown
-        }
-      });
-
-      // Click events for submenu items
-      const menuItems = dropdownMenu.querySelectorAll("li");
-      menuItems.forEach(item => {
-        item.addEventListener("click", function (event) {
-          // Allow the link to be clicked
-          const link = item.querySelector('a');
-          if (link) {
-            window.location.href = link.href; // Navigate to the link's destination
-          }
-
-          // Optionally close the dropdown after clicking an item
-          dropdownMenu.classList.remove("show");
-        });
-      });
     }
   }, 100);
 }
 
-// Function to handle team-photo image logic and background color
+
+// Handle team-photo image logic
 document.addEventListener('DOMContentLoaded', function() {
-  // Select all images with the class 'team-photo'
-  const teamPhotos = document.querySelectorAll('.team-photo');
-
-  // Loop through each image
-  teamPhotos.forEach(function(img) {
-    // Check if the image source matches '/src/Image/whitebg.png'
+  document.querySelectorAll('.team-photo').forEach(img => {
     if (img.src.includes('/src/Image/whitebg.png')) {
-      // Find the parent element (team-card)
       const teamCard = img.closest('.team-card');
-
-      // Remove the image tag
       img.style.display = 'none';
 
-      // Set the background color of the team-card to #f9f9f9
       if (teamCard) {
         teamCard.style.backgroundColor = '#f9f9f9';
-          // Center the content inside the team-card
-          teamCard.style.display = 'flex';
-          teamCard.style.flexDirection = 'column';
-          teamCard.style.justifyContent = 'center';
-          teamCard.style.alignItems = 'center';
-          teamCard.style.textAlign = 'center';
+        teamCard.style.display = 'flex';
+        teamCard.style.flexDirection = 'column';
+        teamCard.style.justifyContent = 'center';
+        teamCard.style.alignItems = 'center';
+        teamCard.style.textAlign = 'center';
       }
     }
   });
