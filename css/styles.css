@@ -212,9 +212,14 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
     color: #1887b6;
-    border-bottom-color: #1887b6;
+    border-bottom-color: #1887b6;   
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
 
 }
+
+
 
 /* Main content */
 main {
@@ -800,8 +805,9 @@ footer {
         color: white;
         border-radius: 5px;
         padding: 5px 10px;
+        font-weight: bold !important;
     }
-
+ 
     .nav-links.show {
         display: flex;
     }
