@@ -241,6 +241,7 @@ main {
 }
 
 /* Team members section */
+
 .team-section {
     max-width: 1000px;
     margin: auto;
@@ -517,7 +518,7 @@ p {
 }
 
 /* Team members */
-.team-member {
+ /* .team-member {
     background: #FFF;
     border-radius: 12px;
     overflow: hidden;
@@ -549,7 +550,128 @@ p {
     color: #7F8C8D;
     margin: 0.5rem 0;
     font-family: 'Montserrat', sans-serif;
-}
+}  */
+
+/* Container for each team card in the carousel */
+.owl-carousel .team-card {
+    background: #FFF;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    height: 300px; /* Adjust height */
+    width: 100%; /* Allow the card to take full available width */
+    max-width: 350px; /* Limit the max width of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  /* Ensure owl-carousel items are responsive */
+  .owl-carousel .item {
+    display: flex;
+    justify-content: center; /* Center the team card */
+    align-items: center;
+  }
+  
+  /* Styling for the team photo inside the card */
+  .owl-carousel .team-card img {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the description text */
+  .team-desc {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555;
+    text-align: justify;
+    flex-grow: 1;
+  }
+  
+  /* Layout for name, position, and photo */
+  .team-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Wrapper for the profile photo */
+  .team-photo-wrapper {
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+  
+  /* Styling for the profile information (name and position) */
+  .team-info h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .team-info p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 200;
+    color: #777;
+    font-style: italic;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    text-align: justify;
+    white-space: normal;
+  }
+  
+  /* Hover effect for team card */
+  .team-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+  
+  /* Make sure owl-carousel is responsive */
+  .owl-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Owl-carousel responsive breakpoints */
+  .owl-carousel .owl-item {
+    width: 100%; /* Full width by default */
+  }
+  
+  /* Small screens (mobile) */
+  @media (max-width: 600px) {
+    .owl-carousel .owl-item {
+      width: 100%; /* Stack cards on small screens */
+    }
+  }
+  
+  /* Medium screens (tablets) */
+  @media (min-width: 600px) and (max-width: 1000px) {
+    .owl-carousel .owl-item {
+      width: 48%; /* Two cards per row */
+    }
+  }
+  
+  /* Large screens (desktop) */
+  @media (min-width: 1000px) {
+    .owl-carousel .owl-item {
+      width: 32%; /* Three cards per row */
+    }
+  }
+  
 
 .contact-link {
     display: inline-block;
