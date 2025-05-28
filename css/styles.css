@@ -189,7 +189,32 @@ nav {
     font-weight: bold;
 }
 
-
+/* office carousel */
+    .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .carousel-btn {
+            background: #eee;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover {
+            background: #ccc;
+        }
+        .carousel img {
+            max-width: 1000x;
+            max-height: 1000px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 /* Properties dropdown mobile resonsive  */
 /* Mobile styles */
 /* Basic styles for the properties menu on mobile */
