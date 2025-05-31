@@ -215,6 +215,60 @@ nav {
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+
+
+        /* Chelsea Cloisters Carousel Styling */
+#chelsea .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust the max width as needed */
+    margin: 0 auto; /* Center the carousel */
+    overflow: hidden; /* Ensure images don't overflow the container */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+  }
+  
+  #chelsea .carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures the image fits within the container */
+  }
+
+
+  /* Carousel Buttons */
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .carousel img {
+    max-width: 1000px;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .carousel-btn:hover {
+    background-color: #0056b3;
+  }
+  
+        
 /* Properties dropdown mobile resonsive  */
 /* Mobile styles */
 /* Basic styles for the properties menu on mobile */
