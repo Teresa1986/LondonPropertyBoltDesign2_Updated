@@ -323,74 +323,68 @@ nav {
 
 
 /* Chelsea Cloisters Carousel Styling */
+.tab-panel {
+  overflow-x: auto;
+}
 
-   .carousel img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; /* Ensures the image fits within the container */
-  }
-
-
-  /* Carousel Buttons */
-  .carousel {
-  overflow: hidden;
+/* Carousel container with responsive dimensions */
+.carousel {
   position: relative;
-  width: 100%;
-  border-radius: 10px;
-}
-
-.carousel-track {
   display: flex;
-  gap: 10px;
-  animation: scrollCarousel 20s linear infinite;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  aspect-ratio: 2 / 1; /* Keeps the 1000x500 aspect ratio */
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-#office-carousel .carousel img,
-#chelsea .carousel img,
-#empire .carousel img,
-#endsleigh .carousel img {
-  flex: 0 0 auto;
-  width: 1000px;
-  height: 500px;
+/* Carousel image responsive size */
+.carousel img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Carousel buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
 
-/* Auto-scroll keyframes */
-@keyframes scrollCarousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+.carousel-btn:hover {
+  background: rgba(200, 200, 200, 0.9);
+}
+
+/* Button positions */
+#chelseaPrevBtn, #empirePrevBtn, #endsleighPrevBtn, #prevBtn {
+  left: 10px;
+}
+#chelseaNextBtn, #empireNextBtn, #endsleighNextBtn, #nextBtn {
+  right: 10px;
+}
+
+/* Optional: Make buttons smaller on small screens */
+@media (max-width: 600px) {
+  .carousel-btn {
+    font-size: 1rem;
+    padding: 4px 8px;
   }
 }
 
-/* 📱 Responsive Adjustments */
-@media (max-width: 768px) {
-  .carousel img {
-    width: 250px;
-    height: 180px;
-  }
-  .carousel-track {
-    animation-duration: 30s; /* Slower on smaller devices */
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel img {
-    width: 200px;
-    height: 140px;
-  }
-  .carousel-track {
-    animation-duration: 35s;
-  }
-}
-
-  
         
 /* Properties dropdown mobile resonsive  */
 /* Mobile styles */
