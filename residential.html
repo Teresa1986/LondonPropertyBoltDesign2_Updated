@@ -1,135 +1,70 @@
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Residential Properties</title>
-      <link rel="stylesheet" href="css/styles.css" />
-      <script src="components/loader.js" defer></script>
-      <style>
-        /* Basic styling for tabs */
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          background-color: #f0f4f8;
-        }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Residential Properties</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="components/loader.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section id="residential" class="tabs-container">
+        <h1 class="section-title">Residential Properties</h1>
+        <div class="tabs">
+          <a href="#chelsea" class="tab-btn active" data-tab="chelsea"
+            >Chelsea Cloisters</a
+          >
+          <a href="#empire" class="tab-btn" data-tab="empire">Empire Court</a>
+          <a href="#endsleigh" class="tab-btn" data-tab="endsleigh"
+            >Endsleigh Court</a
+          >
+        </div>
 
-        .tabs-container {
-          width: 100%;
-          max-width: 1200px;
-          margin: 20px auto;
-          padding: 20px;
-          background-color: #ffffff;
-          border-radius: 10px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .tabs {
-          display: flex;
-          justify-content: space-around;
-          margin-bottom: 20px;
-        }
-
-        .tab-btn {
-          flex: 1;
-          text-align: center;
-          padding: 15px 20px;
-          cursor: pointer;
-          font-size: 18px;
-          font-weight: bold;
-          background-color: #f9f9f9;
-          border: 1px solid #ddd;
-          border-radius: 15px;
-          margin: 0 10px;
-          transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-
-        .tab-btn:hover {
-          background-color: #1887b6;
-          color: #fff;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .tab-btn.active {
-          background-color: #1887b6;
-          color: #fff;
-          border: 1px solid #1887b6;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .tab-content {
-          padding: 20px;
-          background-color: #f9f9f9;
-          border: 1px solid #ddd;
-          border-radius: 10px;
-        }
-
-        .tab-panel {
-          display: none;
-        }
-
-        .tab-panel.active {
-          display: block;
-        }
-      </style>
-    </head>
-    <body>
-      <main>
-        <section id="residential" class="tabs-container">
-          <h1 class="section-title">Residential Properties</h1>
-          <div class="tabs">
-            <a href="#chelsea" class="tab-btn active" data-tab="chelsea">Chelsea Cloisters</a>
-            <a href="#empire" class="tab-btn" data-tab="empire">Empire Court</a>
-            <a href="#endsleigh" class="tab-btn" data-tab="endsleigh">Endsleigh</a>
-          </div>
-
-          <div class="tab-content">
-            <!-- Chelsea Cloisters Tab -->
-            <div class="tab-panel active" id="chelsea">
+        <div class="tab-content">
+          <!-- Chelsea Cloisters Tab -->
+          <div class="tab-panel active" id="chelsea">
             <!--<h2 class="section-title">Chelsea Cloisters</h2>-->
-              <div class="carousel">
-                <button id="chelseaPrevBtn" class="carousel-btn">❮</button>
-                <img
-                  id="chelseaCarouselImage"
-                  src="src/Image/Residential/Chelsea Cloisters/Cloisters-01.jpg"
-                  alt="Chelsea Cloisters Image"
-                />
-                <button id="chelseaNextBtn" class="carousel-btn">❯</button>
-              </div>
+            <div class="carousel">
+              <button id="chelseaPrevBtn" class="carousel-btn">❮</button>
+              <img
+                id="chelseaCarouselImage"
+                src="src/Image/Residential/Chelsea Cloisters/Cloisters-01.jpg"
+                alt="Chelsea Cloisters Image"
+              />
+              <button id="chelseaNextBtn" class="carousel-btn">❯</button>
             </div>
-
-         <!-- Empire Court Tab -->
-<div class="tab-panel" id="empire">
-  <!--<h2>Empire Court</h2>-->
-  <div class="carousel">
-    <button id="empirePrevBtn" class="carousel-btn">❮</button>
-    <img
-      id="empireCarouselImage"
-      src="src/Image/Residential/Empire Court/Empire-02.jpg"
-      alt="Empire Court Image"
-    />
-    <button id="empireNextBtn" class="carousel-btn">❯</button>
-  </div>
-</div>
-
-<!-- Endsleigh Tab -->
-<div class="tab-panel" id="endsleigh">
- <!-- <h2>Endsleigh</h2>-->
-  <div class="carousel">
-    <button id="endsleighPrevBtn" class="carousel-btn">❮</button>
-    <img
-      id="endsleighCarouselImage"
-      src="src/Image/Residential/Endsleigh Court/Endsleigh-01.jpg"
-      alt="Endsleigh Image"
-    />
-    <button id="endsleighNextBtn" class="carousel-btn">❯</button>
-  </div>
-</div>
-
           </div>
-        </section>
-      </main>
-    </body>
-  </html>
+
+          <!-- Empire Court Tab -->
+          <div class="tab-panel" id="empire">
+            <!--<h2>Empire Court</h2>-->
+            <div class="carousel">
+              <button id="empirePrevBtn" class="carousel-btn">❮</button>
+              <img
+                id="empireCarouselImage"
+                src="src/Image/Residential/Empire Court/Empire-02.jpg"
+                alt="Empire Court Image"
+              />
+              <button id="empireNextBtn" class="carousel-btn">❯</button>
+            </div>
+          </div>
+
+          <!-- Endsleigh Tab -->
+          <div class="tab-panel" id="endsleigh">
+            <!-- <h2>Endsleigh</h2>-->
+            <div class="carousel">
+              <button id="endsleighPrevBtn" class="carousel-btn">❮</button>
+              <img
+                id="endsleighCarouselImage"
+                src="src/Image/Residential/Endsleigh Court/Endsleigh-01.jpg"
+                alt="Endsleigh Image"
+              />
+              <button id="endsleighNextBtn" class="carousel-btn">❯</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
